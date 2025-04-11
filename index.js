@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://www.localhost:5173',"https://mypoems.netlify.app","https://github.com"], 
+  origin: ['http://localhost:5173', 'http://www.localhost:5173',"https://mypoems.netlify.app",''], 
   credentials: true, // Allow cookies and credentials
 }));
 app.use(express.json()); // Parse JSON bodies

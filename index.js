@@ -25,6 +25,7 @@ mongoose
 
 // Basic route
 app.get("/", (req, res) => {
+  console.log('awake')
   res.send("Hello from the server!");
 });
 

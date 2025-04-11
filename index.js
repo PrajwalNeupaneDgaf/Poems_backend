@@ -6,7 +6,10 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "*" })); // Wildcard CORS
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://www.localhost:5173',"https://mypoems.netlify.app","https://github.com"], 
+  credentials: true, // Allow cookies and credentials
+}));
 app.use(express.json()); // Parse JSON bodies
 
 // MongoDB Connection
@@ -29,11 +32,11 @@ app.use('/api/user',userRoute)
 app.use('/api/poem',poemRoute)
 
 // Start server
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//   console.log(`🚀 Server is running on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server is running on port ${PORT}`);
+});
 
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 
-module.exports = serverless(app);
+// module.exports = serverless(app);
